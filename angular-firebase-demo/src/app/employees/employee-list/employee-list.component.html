@@ -1,0 +1,31 @@
+<h6 class="text-cente">Employee Register</h6><br>
+<table class="table table-sm table-hover table-striped">
+    <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Project</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeList">
+          <td >
+            {{ employee.firstName }}
+          </td>
+          <td >
+            {{ employee.lastName}}
+          </td>
+          <td >
+            {{ employee.position}}
+          </td>
+          <td >
+            {{ employee.project}}
+          </td>
+          <td >
+            <a class="btn btn-primary" (click)="onEdit(employee)">modify</a>
+            <a class="btn btn-danger" (click)="onDelete(employee)">delete</a>
+          </td>
+        </tr>
+      </tbody>
+</table>

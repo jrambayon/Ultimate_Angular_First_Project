@@ -1,0 +1,48 @@
+<div class="modal {{atribut}}" tabindex="-1" role="dialog" id="employeeFormModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h3>Employee Information</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <form #employeeForm='ngForm' (ngSubmit)="onSubmit(employeeForm)">
+          <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]= "employeeService.selectedEmployee.$key">
+          <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" name ="firstName" #firstName="ngModel" [(ngModel)]="employeeService.selectedEmployee.firstName" placeholder="First Name" required>
+          </div>
+        
+          <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" name ="lastName" #lastName="ngModel" [(ngModel)]="employeeService.selectedEmployee.lastName" placeholder="Last Name" required>
+          </div>
+        
+          <div class="form-group">
+            <label>Position</label>
+            <input class="form-control" name ="position" #position="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Position" required>
+          </div>
+        
+          <div class="form-group">
+            <label>Project</label>
+            <input class="form-control" name ="project" #project="ngModel" [(ngModel)]="employeeService.selectedEmployee.project" placeholder="Project" required>
+          </div>
+        
+          <div class="form-group">
+            <button class="btn btn-default" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+            &nbsp;
+            <button class="btn btn-default" type="button" (click)="resetForm(employeeForm)">Reset</button>
+            
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-default" type="button" data-toggle="modal" data-target="#employeeFormModal" >Add New Employee</button>
+
+
+  
